@@ -22,6 +22,9 @@ deploy:
 	helm repo add atlassian-data-center https://atlassian.github.io/data-center-helm-charts
 	helm install bamboo atlassian-data-center/bamboo --version 1.7.1 -f bamboo.yml
 	helm install bamboo-agent atlassian-data-center/bamboo-agent --version 1.7.1 -f bamboo-agent.yml
+
+	kubectl port-forward  bamboo-0 8085:8085 &
+
 destroy:
 	k3d cluster delete bamboo
 	rm config-bamboo
