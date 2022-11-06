@@ -1,6 +1,6 @@
 database:
   type: 'postgresql'
-  url: 'jdbc:postgresql://postgresql.default.svc.cluster.local:5432/bamboo'
+  url: 'jdbc:postgresql://10.42.1.7:5432/bamboo'
   credentials:
     secretName: pg-secret
     usernameSecretKey: pg-user
@@ -25,4 +25,4 @@ bamboo:
     secretName: bamboo-secret
     usernameSecretKey: bamboo-user
     passwordSecretKey: bamboo-pass
-    emailAdressSecretKey: bamboo-email
+    emailAdressSecretKey: emailAddress

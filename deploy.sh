@@ -18,8 +18,7 @@ kubectl create secret generic pg-secret --from-literal=pg-user=$PG_USER --from-l
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm install postgresql bitnami/postgresql --version 12.1.0 -f bamboo.yml
 
-kubectl create secret generic bamboo-secret --from-literal=bamboo-user=$BAMBOO_USER --from-literal=bamboo-pass=$BAMBOO_PASS --from-literal=bamboo-email=$BAMBOO_EMAIL
+kubectl create secret generic bamboo-secret --from-literal=bamboo-user=$BAMBOO_USER --from-literal=bamboo-pass=$BAMBOO_PASS --from-literal=emailAddress=$BAMBOO_EMAIL --from-literal=displayName=$BAMBOO_USER
 
 helm repo add atlassian-data-center https://atlassian.github.io/data-center-helm-charts
 helm install bamboo atlassian-data-center/bamboo --version 1.7.1 -f bamboo.yml
- 
