@@ -1,0 +1,27 @@
+database:
+  type: 'postgresql'
+  url: 'jdbc:postgresql://postgres:5432/bamboo'
+  credentials: # 'kubectl create secret generic <secret-name> --from-literal=username=<username> \ # --from-literal=password=<password>'
+    usernameSecretKey: pg-user
+    passwordSecretKey: pg-pass
+
+volumes:
+  localHome:
+    persistentVolumeClaim:
+      create: true
+      resources:
+        requests:
+          storage: 5Gi
+
+ingress:
+  create: true
+  host: '/bamboo'
+
+bamboo:
+  disableAgentAuth: true
+  license:
+    secretKey: license
+  sysadminCredentials:
+    usernameSecretKey: bamboo-user
+    passwordSecretKey: bamboo-pass
+    emailAdressSecretKey: bamboo-email

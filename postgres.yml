@@ -1,0 +1,7 @@
+postgresql:
+  auth:
+    username: bamboo
+    database: bamboo
+    secretKeys:
+      adminPasswordKey: pg-admin
+      userPasswordKey: pg-user
