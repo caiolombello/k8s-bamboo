@@ -11,4 +11,7 @@ k3d cluster create bamboo \
 k3d kubeconfig get bamboo > config-bamboo
 export KUBECONFIG=$PWD/config-bamboo
 
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm upgrade postgresql bitnami/postgresql --version 12.1.0
+
  
