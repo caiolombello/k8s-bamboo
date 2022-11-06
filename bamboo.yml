@@ -1,9 +1,10 @@
 database:
   type: 'postgresql'
-  url: 'jdbc:postgresql://postgres:5432/bamboo'
-  credentials: # 'kubectl create secret generic <secret-name> --from-literal=username=<username> \ # --from-literal=password=<password>'
+  url: 'jdbc:postgresql://postgresql.default.svc.cluster.local:5432/bamboo'
+  credentials:
+    secretName: pg-secret
     usernameSecretKey: pg-user
-    passwordSecretKey: pg-pass
+    passwordSecretKey: pg-user
 
 volumes:
   localHome:
@@ -15,13 +16,13 @@ volumes:
 
 ingress:
   create: true
-  host: '/bamboo'
 
 bamboo:
   disableAgentAuth: true
   license:
     secretKey: license
   sysadminCredentials:
+    secretName: bamboo-secret
     usernameSecretKey: bamboo-user
     passwordSecretKey: bamboo-pass
     emailAdressSecretKey: bamboo-email
