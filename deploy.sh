@@ -14,4 +14,6 @@ export KUBECONFIG=$PWD/config-bamboo
 helm repo add bitnami https://charts.bitnami.com/bitnami
 helm upgrade postgresql bitnami/postgresql --version 12.1.0
 
+helm repo add atlassian-data-center https://atlassian.github.io/data-center-helm-charts
+helm upgrade bamboo atlassian-data-center/bamboo --version 1.7.1
  
